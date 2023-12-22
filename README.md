@@ -1,1 +1,1 @@
-# react-gallery-app-ts-tailwind
+# React TS Clock App
