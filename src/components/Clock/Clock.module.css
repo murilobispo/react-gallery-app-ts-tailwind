@@ -1,0 +1,25 @@
+.clock{
+    width: 100%;
+    height: 80%;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight:500;
+    text-shadow: 2px 2px 4px #333
+}
+.clockOptions {
+    width: 100%;
+    height: 20%;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    justify-content: center;
+    text-shadow: 2px 2px 4px #333;
+    font-size:2em;
+    align-items: center;
+}

@@ -1,12 +1,10 @@
 import './reset.css'
 import './App.css'
-import MainContainer from './components/MainContainer'
+import Clock from './components/Clock'
 
 function App() {
   return (
-    <MainContainer>
-
-    </MainContainer>
+    <Clock/>
   )
 }
 
