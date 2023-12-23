@@ -1,15 +1,8 @@
-import styles from './TimeModeOptions.module.css'
 import { useState, useEffect } from 'react'
 
 function TimeModeOptions () {
-    
-    interface Options {
-        weekday: string,
-        year: string,
-        month: string,
-        day: string,
-    }
-    const options:Options = {
+
+    const options: any = { 
         weekday: 'long',
         year: 'numeric',
         month: 'long',

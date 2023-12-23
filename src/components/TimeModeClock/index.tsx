@@ -1,4 +1,3 @@
-import styles from './TimeModeClock.module.css'
 import { useState, useEffect } from 'react'
 
 function TimeMode () {
@@ -16,7 +15,7 @@ function TimeMode () {
     }, [])
     
     return(
-      <h1 className={styles.timeText}>{currentTime}</h1>
+      <h1>{currentTime}</h1>
     )
 }
 
