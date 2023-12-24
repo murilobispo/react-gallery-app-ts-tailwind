@@ -1,16 +1,19 @@
 import styles from './Clock.module.css'
-import MainContainer from '../MainContainer'
-import TimeModeClock from '../TimeModeClock'
-import TimeModeOptions from '../TimeModeOptions'
+import MainContainer from '../MainContainer' 
+import { ReactNode } from 'react'
 
-function Clock() {
+interface ClockProps {
+    clockMode:  ReactNode
+    clockOptions:  ReactNode
+}
+function Clock({clockMode, clockOptions}:ClockProps) {
     return(
         <MainContainer>
             <div className={styles.clock}>
-                <TimeModeClock/>
+                {clockMode}
             </div>
             <div className={styles.clockOptions}>
-                <TimeModeOptions/>
+                {clockOptions}
             </div>
         </MainContainer>
     )

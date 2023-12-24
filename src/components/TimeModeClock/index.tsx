@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react'
 
-function TimeMode () {
+function TimeModeClock () {
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString())
 
     useEffect(() => {
       const timerId = setInterval(() => {
         setCurrentTime(new Date().toLocaleTimeString())
         document.title = new Date().toLocaleTimeString()
-
-        console.log(new Date().toLocaleTimeString())
       }, 1000)
       
       return () => clearInterval(timerId)
@@ -19,4 +17,4 @@ function TimeMode () {
     )
 }
 
-export default TimeMode
+export default TimeModeClock

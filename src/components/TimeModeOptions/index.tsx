@@ -14,7 +14,6 @@ function TimeModeOptions () {
     useEffect(() => {
         const timerId = setInterval(() => {
             setCurrentDate(new Date().toLocaleDateString(undefined, options))
-            console.log(new Date().toLocaleDateString(undefined, options))
         }, 1000)
     
         return () => clearInterval(timerId);
