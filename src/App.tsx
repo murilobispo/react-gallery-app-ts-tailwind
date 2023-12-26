@@ -4,8 +4,9 @@ import Clock from './components/Clock'
 import SideBar from './components/SideBar'
 import TimeModeClock from './components/TimeModeClock'
 import TimeModeOptions from './components/TimeModeOptions'
-import { ReactNode, useState } from 'react'
+import { ReactNode } from 'react'
 import { BsClock, BsHourglass, BsStopwatch} from "react-icons/bs";
+import { useState } from 'react'
 
 export interface ContentState {
   mode: string
@@ -17,8 +18,9 @@ export interface ContentState {
 }
 
 function App() {
+  const [selectedItem, setSelectedItem] = useState<ContentState['mode']>('Time Now')
 
-  const [content, setContent] = useState<ContentState[]>([
+  const content : ContentState[] = [
     {
       mode: 'Time Now',
       icon: <BsClock/>,
@@ -43,17 +45,19 @@ function App() {
         options: <h1>IN PROGRESS</h1>
       },
     },
-  ])
+  ]
   
   return (
     <div>
       
       <Clock 
-      clockMode={<TimeModeClock/>} 
-      clockOptions={<TimeModeOptions/>}
+      clockMode={content.find((item) => item.mode === selectedItem)?.content.main} 
+      clockOptions={content.find((item) => item.mode === selectedItem)?.content.options}
       />
       <SideBar 
-      NavItems={content}
+      NavItems={content} 
+      selectedItem={selectedItem} 
+      setSelectedItem={setSelectedItem}
       />
     </div>
   )

@@ -4,28 +4,28 @@ import { FaBars, FaWindowClose } from "react-icons/fa";
 import { BsGithub  } from "react-icons/bs";
 import { ContentState } from '../../App';
 
-function SideBar({ NavItems }: { NavItems: ContentState[] }) {
+interface SideBarProps {
+  NavItems : ContentState[]
+  selectedItem: string
+  setSelectedItem: React.Dispatch<React.SetStateAction<string>>
+}
 
-  interface IsOpenState {
-    active: boolean
-  }
+function SideBar({ NavItems, selectedItem, setSelectedItem}: SideBarProps) {
 
-  const [isOpen, setIsOpen] = useState<IsOpenState>({
-    active: false
-  })
- const [selectedItem, setSelectedItem] = useState<ContentState['mode']>('Time Now')
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
   return(
     <div 
-    className={`${styles.SideBarContainer} ${isOpen.active ? styles.SideBarVisible : styles.SideBarHidden}`}
+    className={`${styles.SideBarContainer} ${isOpen ? styles.SideBarVisible : styles.SideBarHidden}`}
     >
       <section className={styles.UpperSection}>
         <header className={styles.Header}>
           <FaWindowClose 
-          onClick={() => setIsOpen({ active: !isOpen.active })} 
-          className={`${styles.SideBarButton} ${isOpen.active ? styles.SideBarCloseOpen : styles.SideBarCloseClose}`}/>
+          onClick={() => setIsOpen(!isOpen)} 
+          className={`${styles.SideBarButton} ${isOpen ? styles.SideBarCloseOpen : styles.SideBarCloseClose}`}/>
           <FaBars 
-          onClick={() => setIsOpen({ active: !isOpen.active })} 
-          className={`${styles.SideBarButton} ${isOpen.active ? styles.SideBarButtonOpen: undefined}`}/>  
+          onClick={() => setIsOpen(!isOpen)} 
+          className={`${styles.SideBarButton} ${isOpen ? styles.SideBarButtonOpen: undefined}`}/>  
 
           <h3 className={styles.clockAppTitle}>Clock App</h3>
         </header>
@@ -37,11 +37,7 @@ function SideBar({ NavItems }: { NavItems: ContentState[] }) {
             ${(item.mode === selectedItem ) ? styles.NavItemSelected : undefined}
             `
           }
-            onClick={() => {
-              setSelectedItem(item.mode)
-              console.log(selectedItem)
-            }
-            }
+            onClick={() => setSelectedItem(item.mode)}
             >
               {item.icon}
               <p>{item.mode}</p>
