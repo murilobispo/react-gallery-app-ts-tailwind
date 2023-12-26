@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import styles from './SideBar.module.css'
 import { FaBars, FaWindowClose } from "react-icons/fa";
-import { BsClock, BsHourglass, BsStopwatch, BsGithub  } from "react-icons/bs";
+import { BsGithub  } from "react-icons/bs";
+import { ContentState } from '../../App';
 
-function SideBar() {
+function SideBar({ NavItems }: { NavItems: ContentState[] }) {
 
   interface IsOpenState {
     active: boolean
   }
 
-  const [isOpen, setIsOpen] = useState<IsOpenState>({active: false})
-
+  const [isOpen, setIsOpen] = useState<IsOpenState>({
+    active: false
+  })
+ const [selectedItem, setSelectedItem] = useState<ContentState['mode']>('Time Now')
   return(
     <div 
     className={`${styles.SideBarContainer} ${isOpen.active ? styles.SideBarVisible : styles.SideBarHidden}`}
@@ -27,18 +30,23 @@ function SideBar() {
           <h3 className={styles.clockAppTitle}>Clock App</h3>
         </header>
         <ul className={styles.Nav}>
-          <li className={styles.NavItem}>
-            <BsClock/>
-            <p>Time Now</p>
-          </li>
-          <li className={styles.NavItem}>
-            <BsStopwatch/>
-            <p>Stopwatch</p>
-          </li>
-          <li className={styles.NavItem}>
-            <BsHourglass/>
-            <p>Timer</p>
-          </li>
+          {NavItems.map((item) =>(
+            <li 
+            className={`
+            ${styles.NavItem} 
+            ${(item.mode === selectedItem ) ? styles.NavItemSelected : undefined}
+            `
+          }
+            onClick={() => {
+              setSelectedItem(item.mode)
+              console.log(selectedItem)
+            }
+            }
+            >
+              {item.icon}
+              <p>{item.mode}</p>
+            </li>
+          ))}
         </ul>
       </section>
 
