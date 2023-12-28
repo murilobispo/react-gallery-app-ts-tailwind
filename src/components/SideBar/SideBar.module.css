@@ -2,7 +2,7 @@
     position: fixed;
     width: 220px;
     height: 100vh;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Martian Mono', monospace;
     color: white;
     transition: right 0.3s ease-in-out;
     background-color: #181414;
@@ -28,8 +28,7 @@
 }
 .Header{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 }
 .SideBarButton {
     position: absolute;

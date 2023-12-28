@@ -4,6 +4,8 @@ import Clock from './components/Clock'
 import SideBar from './components/SideBar'
 import TimeModeClock from './components/TimeModeClock'
 import TimeModeOptions from './components/TimeModeOptions'
+import StopWatchClock from './components/StopwatchClock'
+import StopWatchOptions from './components/StopwatchOptions'
 import { ReactNode } from 'react'
 import { BsClock, BsHourglass, BsStopwatch} from "react-icons/bs";
 import { useState } from 'react'
@@ -33,8 +35,8 @@ function App() {
       mode: 'Stopwatch',
       icon: <BsStopwatch/>,
       content: {
-        main: <h1>IN PROGRESS</h1>,
-        options: <h1>IN PROGRESS</h1>
+        main: <StopWatchClock/>,
+        options: <StopWatchOptions/>
       },
     },
     {

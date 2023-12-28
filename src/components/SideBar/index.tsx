@@ -32,6 +32,7 @@ function SideBar({ NavItems, selectedItem, setSelectedItem}: SideBarProps) {
         <ul className={styles.Nav}>
           {NavItems.map((item) =>(
             <li 
+            key={item.mode}
             className={`
             ${styles.NavItem} 
             ${(item.mode === selectedItem ) ? styles.NavItemSelected : undefined}
