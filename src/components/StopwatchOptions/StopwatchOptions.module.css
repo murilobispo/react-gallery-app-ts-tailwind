@@ -1,0 +1,11 @@
+.SWButton {
+    background-color: transparent;
+    border-radius: 33px;
+    text-transform: uppercase;
+    padding: 0.8em;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #181818;
+    box-sizing: border-box;
+    font-size: 0.8em;
+}

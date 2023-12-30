@@ -1,6 +1,11 @@
+import styles from './StopwatchOptions.module.css'
+
 function StopWatchOptions () {
     return(
-        <h1>IN PROGRESS</h1>
+        <>
+            <p className={styles.SWButton}>Start</p>
+            <p className={styles.SWButton}>Reset</p>
+        </>
     )
 }
 
