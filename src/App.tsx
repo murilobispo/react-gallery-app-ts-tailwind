@@ -1,11 +1,9 @@
 import './reset.css'
 import './App.css'
-import Clock from './components/Clock'
+import Main from './components/Main'
 import SideBar from './components/SideBar'
-import TimeModeClock from './components/TimeModeClock'
-import TimeModeOptions from './components/TimeModeOptions'
-import StopWatchClock from './components/StopwatchClock'
-import StopWatchOptions from './components/StopwatchOptions'
+import TimeMode from './components/TimeMode'
+import StopwatchMode from './components/StopwatchMode'
 import { ReactNode } from 'react'
 import { BsClock, BsHourglass, BsStopwatch} from "react-icons/bs";
 import { useState } from 'react'
@@ -13,55 +11,35 @@ import { useState } from 'react'
 export interface ContentState {
   mode: string
   icon: ReactNode
-  content: {
-    main: ReactNode
-    options: ReactNode
-  }
+  content: ReactNode
 }
 
 function App() {
   const [selectedItem, setSelectedItem] = useState<ContentState['mode']>('Time Now')
 
-  const content : ContentState[] = [
+  const contents : ContentState[] = [
     {
       mode: 'Time Now',
       icon: <BsClock/>,
-      content: {
-        main: <TimeModeClock/>,
-        options: <TimeModeOptions/>
-      },
+      content: <TimeMode/>
     },
     {
       mode: 'Stopwatch',
       icon: <BsStopwatch/>,
-      content: {
-        main: <StopWatchClock/>,
-        options: <StopWatchOptions/>
-      },
+      content: <StopwatchMode/>
     },
     {
       mode: 'Timer',
       icon: <BsHourglass/>,
-      content: {
-        main: <h1>IN PROGRESS</h1>,
-        options: <h1>IN PROGRESS</h1>
-      },
-    },
+      content: <h1>IN PROGRESS</h1>
+    }
   ]
   
   return (
-    <div>
-      
-      <Clock 
-      clockMode={content.find((item) => item.mode === selectedItem)?.content.main} 
-      clockOptions={content.find((item) => item.mode === selectedItem)?.content.options}
-      />
-      <SideBar 
-      NavItems={content} 
-      selectedItem={selectedItem} 
-      setSelectedItem={setSelectedItem}
-      />
-    </div>
+    <>
+      <Main>{contents.find((item) => item.mode === selectedItem)?.content}</Main>
+      <SideBar NavItems={contents} selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
+    </>
   )
 }
 

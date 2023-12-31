@@ -1,21 +1,15 @@
 import styles from './Clock.module.css'
-import MainContainer from '../MainContainer' 
 import { ReactNode } from 'react'
 
 interface ClockProps {
-    clockMode:  ReactNode
-    clockOptions:  ReactNode
+    children?:  ReactNode
 }
-function Clock({clockMode, clockOptions}:ClockProps) {
+
+function Clock({children}:ClockProps) {
     return(
-        <MainContainer>
-            <div className={styles.clock}>
-                {clockMode}
-            </div>
-            <div className={styles.clockOptions}>
-                {clockOptions}
-            </div>
-        </MainContainer>
+        <div className={styles.clock}>
+            {children}
+        </div>
     )
 }
 

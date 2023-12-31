@@ -1,3 +1,20 @@
+.SWList{
+    display: flex;
+    gap: 0.2em;
+}
+.SWListItem {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    
+}
+.TimeAbbr{
+    font-size: 0.3em;
+    text-transform:lowercase;
+}
+.MillisecStyle {
+    align-self: center;
+}
 .SWButton {
     background-color: transparent;
     border-radius: 33px;

@@ -1,15 +1,15 @@
 import { ReactNode } from 'react'
-import styles from './MainContainer.module.css'
+import styles from './Main.module.css'
 
-interface MainContainerProps{
+interface MainProps{
     children?: ReactNode
 }
 
-function MainContainer ({children}:MainContainerProps) {
+function Main ({children}:MainProps) {
     return (
         <main className={styles.mainContainer}>
             {children}
         </main>
     )
 }
-export default MainContainer
+export default Main
