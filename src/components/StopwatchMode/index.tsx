@@ -89,8 +89,18 @@ function StopwatchMode () {
                 </ul>
             </Clock>
             <ClockOptions>
-                <p onClick={handleStartButtonClick} className={styles.SWButton}>Start</p>
-                <p onClick={handleResetButtonClick} className={styles.SWButton}>Reset</p>
+                <p 
+                    onClick={handleStartButtonClick} 
+                    className={`${styles.SWButton} ${startSW && styles.SWButtonActivate}`}
+                >
+                    {startSW ? 'Pause' : 'Start'}
+                </p>
+                <p 
+                    onClick={handleResetButtonClick} 
+                    className={styles.SWButton}
+                >
+                    Reset
+                </p>
             </ClockOptions>
         </>
     )

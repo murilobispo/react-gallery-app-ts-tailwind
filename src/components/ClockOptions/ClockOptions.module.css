@@ -5,7 +5,6 @@
     font-family: 'Martian Mono', monospace;    
     display: flex;
     justify-content: center;
-    text-shadow: 2px 2px 4px #333;
     font-size:1.3em;
     align-items: center;
     overflow: hidden;

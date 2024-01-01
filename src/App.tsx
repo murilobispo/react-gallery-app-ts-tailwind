@@ -1,9 +1,10 @@
-import './reset.css'
-import './App.css'
+import './styles/reset.css'
+import './styles/App.css'
 import Main from './components/Main'
 import SideBar from './components/SideBar'
 import TimeMode from './components/TimeMode'
 import StopwatchMode from './components/StopwatchMode'
+import TimerMode from './components/TimerMode'
 import { ReactNode } from 'react'
 import { BsClock, BsHourglass, BsStopwatch} from "react-icons/bs";
 import { useState } from 'react'
@@ -31,7 +32,7 @@ function App() {
     {
       mode: 'Timer',
       icon: <BsHourglass/>,
-      content: <h1>IN PROGRESS</h1>
+      content: <TimerMode/>
     }
   ]
   
